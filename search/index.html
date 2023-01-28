@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+        <div id="search">
+            <form>
+              <input type="search" id="search-input" placeholder="Search ..." />
+              <button id="search-btn" type="button">Search</button>
+            </form>
+        
+        
+            <div class="content">    <h3 class="title">Red</h3>    <p class="description">Lorem ipsum dolor est</p>    </div>
+            <div class="content">    <h3 class="title">Green</h3>    <p class="description">Lorem ipsum dolor est</p>    </div>
+            <div class="content">    <h3 class="title">Blue</h3>    <p class="description">Lorem ipsum dolor est</p>    </div>
+            <div class="content">    <h3 class="title">Orange</h3>    <p class="description">Lorem ipsum dolor est</p>    </div>
+            <div class="content">    <h3 class="title">Yellow</h3>    <p class="description">Lorem ipsum dolor est</p>    </div>
+            
+        
+        
+          </div>
+          
+
+          
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        var $searchContainer = $("#search");
+var $contentBoxes = $searchContainer.find(".content");
+var $searchInput = $searchContainer.find("#search-input");
+var $searchBtn = $searchContainer.find("#search-btn");
+
+$searchBtn.on("click", searchContent);
+$searchInput.on("input", searchContent);
+
+function searchContent(){
+	var userInput;
+  
+  //Check if call comes from button or input change
+	if($(this).is(":button")){
+  	userInput = $(this).siblings("input").val();
+  } else {
+  	userInput = $(this).val();
+  }
+  
+  //make the input all lower case to make it compatible for searching
+  userInput = userInput.toLowerCase();
+
+  //Loop through all the content to find matches to the user input
+  $contentBoxes.each(function(){
+   
+    var headerText = $(this).find(".title").text();
+    var contentText = $(this).find(".description").text();
+    //add the title and content of the contentbox to the searchable content, and make it lower case
+    var searchableContent = headerText + " " + contentText;
+        searchableContent = searchableContent.toLowerCase();
+    
+    //hide content that doesn't match the user input
+    if(!searchableContent.includes(userInput)){
+      $(this).hide();
+    } else {
+      $(this).show();
+    }
+
+  });
+
+};
+
+    </script>
+</body>
+</html>
