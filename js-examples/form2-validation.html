@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>Form 2 Validation</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <div class="row">
+            <div class="col m6">
+                <form action="" id="signupForm" novalidate>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="firstName">First Name</label>
+                            <input type="text" name="First name" id="firstName">
+                            <span class="helper-text"></span>
+                        </div>
+                        <div class="input-field col s6">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" name="Last name" id="lastName">
+                            <span class="helper-text"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="password">Password</label>
+                            <input type="password" name="Password" id="password">
+                            <span class="helper-text"></span>
+                        </div>
+                        <div class="input-field col s6">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" name="Confirm Password" id="confirmPassword">
+                            <span class="helper-text"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email">
+                            <span class="helper-text"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn waves-effect waves-light">Sign Up</button>
+                </form>
+            </div>
+            <div class="col m6">
+                <img src="https://images.pexels.com/photos/2265488/pexels-photo-2265488.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="image" style="width: 100%; border-radius: 6px; opacity: 0.9;">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        const fn = document.getElemntById("firstName");
+        const ln = document.getElemntById("lastName");
+        const pwd = document.getElemntById("password");
+        const cPwd = document.getElemntById("confirmPassword");
+        const eml = document.getElemntById("email");
+
+        const form = document.getElementById("signupForm");
+
+        const green = "#4CAF50";
+        const red = "#F44336";
+    </script>
+</body>
+</html>

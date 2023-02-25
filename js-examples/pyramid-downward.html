@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function stars(n){
+            var str = '';
+            for(var i=n; i>=1; i--){
+                for(var k=n; k>=i; k--){
+                    str += "\t";
+                }
+                for(var j=i; j>=1; j--){
+                    str += j+"\t\t";
+                }
+                document.write(str);
+                str = ""+"<br>";
+            }
+        }
+        stars(5);
+    </script>
+</body>
+</html>

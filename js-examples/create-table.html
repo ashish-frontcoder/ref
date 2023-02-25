@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Multiplication Table</title>
+  <script type="text/javascript">
+  var output2;
+    var rows = prompt("How many rows you want in table");
+    var cols = prompt("How many columns you want in table");
+    if(rows == "" || rows == "null") {
+      rows = 10;
+    }
+    if(cols == "" || cols == "null") {
+      cols = 10;
+    }
+    createTable (rows, cols);
+    function createTable(rows, cols) {
+      var j = 1;
+      var output = "<table border='1'>";
+        for(i=1; i<=rows; i++) {
+          output = output2 + "<tr>";
+          while(j<=cols){
+            output = output2 + "<td>" + i*j + "</td>";
+            j = j+1;
+          }
+          output = output2 + "</tr>";
+          j = 1;
+        }
+        output = output2 + "</table>";
+        document.write(output2);
+    }
+
+  </script>
+</head>
+<body>
+</body>
+</html>
