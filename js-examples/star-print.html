@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Method 1
+        document.write("Method 1"+"<br>");
+        for(var i=1; i<=5; i++){
+            document.write("*".repeat(i).concat("<br>"));
+        }
+
+        // Method 2
+        document.write("Method 2"+"<br>");
+        var output = "";
+        for(i=5; i>=1; i--){
+            for(j=i; j>=1; j--){
+                output += j+"";
+            }
+            document.write(output+"<br>");
+            output = "";
+        }
+
+        // Method 3
+        document.write("Method 3"+"<br>");
+        var output = "";
+        for(i=1; i<=5; i++){
+            for(j=1; j<=i; j++){
+                output += "*";
+            }
+            document.write(output+"<br>");
+            output = "";
+        }
+
+        // Method 4
+        document.write("Method 4"+"<br>");
+        var output = "";
+        for(i=1; i<=5; i++){
+            for(j=1; j<=i*2-2; j++){
+                output += "*";
+            }
+            document.write(output+"<br>");
+            output = "";
+        }
+
+        // Method 5
+        document.write("Method 5"+"<br>");
+        var output = "";
+        for(i=1; i<=5; i++){
+            for(j=1; j<=i*2-1; j++){
+                output += "*";
+            }
+            document.write(output+"<br>");
+            output = "";
+        }
+        
+    </script>
+</body>
+</html>

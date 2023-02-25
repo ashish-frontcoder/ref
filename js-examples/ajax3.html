@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax with jquery</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="test-inner"></div>
+        <div id="test-status"></div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script>
+        var xhrObject = new XMLHttpRequest();
+
+xhrObject.onreadystatechange = function() {
+  if (xhrObject.readyState === 4) {
+    if (xhrObject.status === 200 || xhrObject.status === 304) {
+      document.getElementById("test-inner").innerHTML = xhrObject.responseText;
+
+    }
+    document.getElementById("test-status").innerHTML =
+      "status: " + xhrObject.status + "\n" +
+      "statusText: " + xhrObject.statusText;
+  }
+};
+
+xhrObject.open(
+  "GET",
+  "https://codepen.io/chriscoyier/pen/difoC.html",
+  true
+);
+xhrObject.send();
+    </script>
+</body>
+</html>

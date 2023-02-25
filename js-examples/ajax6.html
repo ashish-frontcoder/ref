@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax with jquery</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button id="btn">Bacon Button</button>
+        <p></p>
+    </div>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script>
+        
+$("#btn").click(function(){
+  $.ajax({
+    method: "GET",
+    url: "https://baconipsum.com/api/?type=meat-and-filler",
+    dataType: 'json'
+  })
+  .done(addP)
+  .fail(function(){
+    alert("OH NO! FAILED!");
+  })
+});
+
+function addP (data){
+  $("p").text(data[0]);
+}
+    </script>
+</body>
+</html>

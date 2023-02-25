@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form1 Validation</title>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container p-5">
+		<form action="" class="col-sm-7 m-auto">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="text" name="email" id="email" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone</label>
+				<input type="text" name="phone" id="phone" class="form-control">
+			</div>
+			<!-- <div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="confirmPassword">Confirm Password</label>
+				<input type="password" name="confirm password" id="confirmPassword" class="form-control">
+			</div> -->
+			<button class="btn btn-primary" type="submit" id="submit">Submit</button>
+		</form>
+	</div>
+
+	<script>
+		const name = document.querySelector("#name");
+		const email = document.querySelector("#email");
+		const phone = document.querySelector("#phone");
+		const password = document.querySelector("#password");
+		const confirmPassword = document.querySelector("#confirmPassword");
+
+		let validName;
+		let validEmail;
+		let validPhone;
+
+		name.addEventListener('blur', () => {
+			let regEx = /^[a-zA-Z]([0-9a-zA-Z]){2,15}$/;
+			
+			let str = name.value;
+			if (regEx.test(str)) {
+				name.classList.remove("is-invalid");
+				name.classList.add("is-valid");
+
+				validName = true;
+			}
+			else {
+				name.classList.add("is-invalid");
+				validName = false;
+			}
+		});
+
+		email.addEventListener('blur', () => {
+			let regEx = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+			
+			let str = email.value;
+			if (regEx.test(str)) {
+				email.classList.remove("is-invalid");
+				email.classList.add("is-valid");
+
+				validEmail = true;
+			}
+			else {
+				email.classList.add("is-invalid");
+				validEmail = false;
+			}
+		});
+
+		phone.addEventListener('blur', () => {
+			let regEx = /^([0-9]){10}$/;
+			
+			let str = phone.value;
+			if (regEx.test(str)) {
+				phone.classList.remove("is-invalid");
+				phone.classList.add("is-valid"); 
+
+				validPhone = true;
+			}
+			else {
+				phone.classList.add("is-invalid");
+				validPhone = false;
+			}
+		});
+
+		let submit = document.querySelector("#submit");
+		submit.addEventListener("click", (e)=>{
+			e.preventDefault();
+			if(validName && validEmail && validPhone) {
+				alert("Success");
+			}
+			else {
+				alert("Error");
+			}
+		});
+
+		var form = document.querySelector("form");
+		form.reset();
+	</script>
+</body>
+
+</html>
