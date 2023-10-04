@@ -1,0 +1,14 @@
+<?php 
+
+$ip = $_SERVER['REMOTTE_ADDR'];
+
+$file = file_get_contents("bannedips.txt");
+
+if(!(strstr($file, $ip))) {
+  echo = "You have not been banned!";
+}
+else {
+  echo = "You have been banned!";
+}
+
+?>
