@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax with jquery</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button type="button" class="btn btn-primary btn-sm httpbin">Jquery Post</button>
+        <div class="result"></div>
+    </div>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.httpbin').click(function(){
+            $.ajax({
+            type:"POST",
+            url:"https://httpbin.org/post",
+            data:"test=POST+PROJECT&by=Eddie+Kidiw",
+            dataType:"json",
+            success: function(data) {
+            $('.result').append('<ul class="list-group"><li class="list-group-item">'+data.form['by']+'</li><li class="list-group-item">'+data['form']['test']+'</li><li class="list-group-item">'+data['headers']['User-Agent']+'</li><li class="list-group-item">'+data['headers']['Content-Type']+'</li><li class="list-group-item">'+data['headers']['Accept-Encoding']+'</li><li class="list-group-item">'+data['headers']['Accept-Language']+'</li></ul>');
+            }
+            });
+            });
+        });
+    </script>
+</body>
+</html>
